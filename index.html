@@ -1,0 +1,216 @@
+
+<style>
+  .gk-wrap { font-family: 'Georgia', serif; background: #0a0a0f; color: #f0ede8; min-height: 100vh; }
+  .gk-nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 2.5rem; border-bottom: 0.5px solid rgba(255,255,255,0.1); background: #0a0a0f; }
+  .gk-logo { font-size: 20px; font-weight: 700; letter-spacing: -0.5px; color: #f0ede8; font-family: 'Georgia', serif; }
+  .gk-logo span { color: #4fc3a1; }
+  .gk-nav-links { display: flex; gap: 2rem; font-size: 13px; color: rgba(240,237,232,0.6); list-style: none; margin: 0; padding: 0; }
+  .gk-nav-cta { background: #4fc3a1; color: #0a0a0f; padding: 8px 18px; border-radius: 4px; font-size: 13px; font-weight: 600; border: none; cursor: pointer; font-family: 'Georgia', serif; }
+  .gk-hero { text-align: center; padding: 5rem 2rem 3.5rem; border-bottom: 0.5px solid rgba(255,255,255,0.08); }
+  .gk-badge { display: inline-block; background: rgba(79,195,161,0.12); color: #4fc3a1; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; border: 0.5px solid rgba(79,195,161,0.3); margin-bottom: 1.5rem; font-family: sans-serif; }
+  .gk-hero h1 { font-size: 48px; font-weight: 400; line-height: 1.15; margin: 0 0 1.25rem; color: #f0ede8; max-width: 680px; margin-left: auto; margin-right: auto; }
+  .gk-hero h1 em { font-style: italic; color: #4fc3a1; }
+  .gk-hero p { color: rgba(240,237,232,0.55); font-size: 16px; max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.7; font-family: sans-serif; }
+  .gk-hero-btns { display: flex; gap: 12px; justify-content: center; }
+  .btn-primary { background: #4fc3a1; color: #0a0a0f; padding: 12px 28px; border-radius: 4px; font-size: 14px; font-weight: 600; border: none; cursor: pointer; font-family: sans-serif; }
+  .btn-ghost { background: transparent; color: #f0ede8; padding: 12px 28px; border-radius: 4px; font-size: 14px; border: 0.5px solid rgba(240,237,232,0.3); cursor: pointer; font-family: sans-serif; }
+  .gk-trust { display: flex; gap: 2.5rem; justify-content: center; padding: 2rem; border-bottom: 0.5px solid rgba(255,255,255,0.08); }
+  .gk-stat { text-align: center; }
+  .gk-stat-num { font-size: 26px; font-weight: 700; color: #4fc3a1; font-family: sans-serif; }
+  .gk-stat-label { font-size: 11px; color: rgba(240,237,232,0.45); margin-top: 4px; font-family: sans-serif; text-transform: uppercase; letter-spacing: 1px; }
+  .gk-section { padding: 4rem 2.5rem; }
+  .gk-section-label { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: #4fc3a1; margin-bottom: 0.5rem; font-family: sans-serif; }
+  .gk-section h2 { font-size: 32px; font-weight: 400; margin: 0 0 0.5rem; color: #f0ede8; }
+  .gk-section-sub { color: rgba(240,237,232,0.5); font-size: 15px; max-width: 500px; margin: 0 0 3rem; font-family: sans-serif; line-height: 1.6; }
+  .gk-features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5px; background: rgba(255,255,255,0.08); border: 0.5px solid rgba(255,255,255,0.08); }
+  .gk-feat { background: #0e0e16; padding: 2rem; }
+  .gk-feat-icon { width: 36px; height: 36px; border-radius: 8px; background: rgba(79,195,161,0.12); border: 0.5px solid rgba(79,195,161,0.25); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
+  .gk-feat-icon svg { width: 18px; height: 18px; stroke: #4fc3a1; fill: none; stroke-width: 1.5; }
+  .gk-feat h3 { font-size: 17px; font-weight: 600; margin: 0 0 0.5rem; color: #f0ede8; font-family: sans-serif; }
+  .gk-feat p { font-size: 14px; color: rgba(240,237,232,0.5); margin: 0; line-height: 1.65; font-family: sans-serif; }
+  .gk-feat-tag { display: inline-block; margin-top: 1rem; font-size: 11px; color: #4fc3a1; font-family: sans-serif; letter-spacing: 0.5px; }
+  .gk-pricing { padding: 4rem 2.5rem; border-top: 0.5px solid rgba(255,255,255,0.08); }
+  .gk-plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.5rem; }
+  .gk-plan { background: #0e0e16; border: 0.5px solid rgba(255,255,255,0.1); padding: 2rem 1.75rem; border-radius: 2px; }
+  .gk-plan.featured { border-color: #4fc3a1; background: #0b1a16; }
+  .gk-plan-badge { font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: #4fc3a1; margin-bottom: 1rem; font-family: sans-serif; display: block; }
+  .gk-plan-name { font-size: 14px; color: rgba(240,237,232,0.5); margin: 0 0 0.5rem; font-family: sans-serif; }
+  .gk-plan-price { font-size: 42px; font-weight: 300; color: #f0ede8; line-height: 1; margin: 0.25rem 0; font-family: sans-serif; }
+  .gk-plan-price sup { font-size: 18px; vertical-align: super; }
+  .gk-plan-period { font-size: 12px; color: rgba(240,237,232,0.35); font-family: sans-serif; margin-bottom: 1.75rem; }
+  .gk-plan-items { list-style: none; padding: 0; margin: 0 0 2rem; display: flex; flex-direction: column; gap: 10px; }
+  .gk-plan-items li { font-size: 13px; color: rgba(240,237,232,0.65); display: flex; align-items: flex-start; gap: 8px; font-family: sans-serif; line-height: 1.4; }
+  .gk-check { width: 14px; height: 14px; border-radius: 50%; background: rgba(79,195,161,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+  .gk-check::after { content: ''; display: block; width: 5px; height: 3px; border-left: 1.5px solid #4fc3a1; border-bottom: 1.5px solid #4fc3a1; transform: rotate(-45deg) translate(0.5px, -0.5px); }
+  .gk-plan-btn { width: 100%; padding: 10px; border-radius: 3px; font-size: 13px; cursor: pointer; font-family: sans-serif; font-weight: 500; border: 0.5px solid rgba(79,195,161,0.4); background: transparent; color: #4fc3a1; }
+  .gk-plan.featured .gk-plan-btn { background: #4fc3a1; color: #0a0a0f; border-color: #4fc3a1; font-weight: 600; }
+  .gk-how { padding: 4rem 2.5rem; border-top: 0.5px solid rgba(255,255,255,0.08); }
+  .gk-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 2.5rem; position: relative; }
+  .gk-step { }
+  .gk-step-num { font-size: 11px; color: rgba(240,237,232,0.25); font-family: sans-serif; margin-bottom: 0.75rem; }
+  .gk-step h4 { font-size: 15px; font-weight: 500; color: #f0ede8; margin: 0 0 0.4rem; font-family: sans-serif; }
+  .gk-step p { font-size: 13px; color: rgba(240,237,232,0.45); margin: 0; line-height: 1.6; font-family: sans-serif; }
+  .gk-step-line { width: 100%; height: 0.5px; background: rgba(255,255,255,0.1); margin-bottom: 1rem; position: relative; }
+  .gk-step-line::after { content: ''; position: absolute; left: 0; top: -1.5px; width: 4px; height: 4px; border-radius: 50%; background: #4fc3a1; }
+  .gk-footer { padding: 2rem 2.5rem; border-top: 0.5px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: space-between; }
+  .gk-footer-logo { font-size: 15px; font-weight: 700; color: rgba(240,237,232,0.4); font-family: 'Georgia', serif; }
+  .gk-footer-logo span { color: #4fc3a1; }
+  .gk-footer p { font-size: 12px; color: rgba(240,237,232,0.2); font-family: sans-serif; margin: 0; }
+</style>
+
+<div class="gk-wrap">
+  <nav class="gk-nav">
+    <div class="gk-logo">Gate<span>Keepr</span></div>
+    <ul class="gk-nav-links">
+      <li>Features</li>
+      <li>How it works</li>
+      <li>Pricing</li>
+      <li>For venues</li>
+    </ul>
+    <button class="gk-nav-cta">Get started</button>
+  </nav>
+
+  <div class="gk-hero">
+    <div class="gk-badge">Fan-first ticketing</div>
+    <h1>Tickets for fans,<br><em>not scalpers.</em></h1>
+    <p>No bots. No hidden fees. No 10x resale markups. Just a fair shot at buying tickets to the events you love.</p>
+    <div class="gk-hero-btns">
+      <button class="btn-primary">Create free account</button>
+      <button class="btn-ghost">See how it works</button>
+    </div>
+  </div>
+
+  <div class="gk-trust">
+    <div class="gk-stat"><div class="gk-stat-num">5-10%</div><div class="gk-stat-label">Flat platform fee</div></div>
+    <div class="gk-stat"><div class="gk-stat-num">0 bots</div><div class="gk-stat-label">Identity-verified only</div></div>
+    <div class="gk-stat"><div class="gk-stat-num">Face value</div><div class="gk-stat-label">Resale price cap</div></div>
+    <div class="gk-stat"><div class="gk-stat-num">Fair queue</div><div class="gk-stat-label">Lottery, not speed</div></div>
+  </div>
+
+  <div class="gk-section">
+    <div class="gk-section-label">Core features</div>
+    <h2>Built differently from the ground up</h2>
+    <p class="gk-section-sub">Every feature addresses a specific failure in the current ticketing system.</p>
+    <div class="gk-features">
+      <div class="gk-feat">
+        <div class="gk-feat-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h3>Bot-proof identity verification</h3>
+        <p>Phone number and government ID check on every account. One person, one account. Bots have no path in.</p>
+        <span class="gk-feat-tag">Stops bots at the door</span>
+      </div>
+      <div class="gk-feat">
+        <div class="gk-feat-icon">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3>Transparent all-in pricing</h3>
+        <p>The price you see is the price you pay. A flat 5 to 10% platform fee, shown upfront. No surprise charges at checkout.</p>
+        <span class="gk-feat-tag">vs. 25-30% industry average</span>
+      </div>
+      <div class="gk-feat">
+        <div class="gk-feat-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Fair-access lottery queue</h3>
+        <p>When demand exceeds supply, we randomize. Your internet speed or alarm clock skill does not determine who gets tickets.</p>
+        <span class="gk-feat-tag">Equal chance for everyone</span>
+      </div>
+      <div class="gk-feat">
+        <div class="gk-feat-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3>Face-value-capped resale</h3>
+        <p>If you need to resell, our fan-to-fan marketplace caps listings at face value. Profiting off other fans is not allowed.</p>
+        <span class="gk-feat-tag">No 10x markup resales</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="gk-pricing">
+    <div class="gk-section-label">Pricing</div>
+    <h2>Simple, honest pricing</h2>
+    <p class="gk-section-sub">No subscriptions required to buy tickets. Premium tiers are for fans who want extra access.</p>
+    <div class="gk-plans">
+      <div class="gk-plan">
+        <span class="gk-plan-badge">&nbsp;</span>
+        <div class="gk-plan-name">Fan</div>
+        <div class="gk-plan-price"><sup>$</sup>0</div>
+        <div class="gk-plan-period">Free to join</div>
+        <ul class="gk-plan-items">
+          <li><span class="gk-check"></span>Verified account</li>
+          <li><span class="gk-check"></span>Full ticket access</li>
+          <li><span class="gk-check"></span>Lottery queue entry</li>
+          <li><span class="gk-check"></span>5-10% platform fee per ticket</li>
+          <li><span class="gk-check"></span>Face-value resale</li>
+        </ul>
+        <button class="gk-plan-btn">Create free account</button>
+      </div>
+      <div class="gk-plan featured">
+        <span class="gk-plan-badge">Most popular</span>
+        <div class="gk-plan-name">Fan+</div>
+        <div class="gk-plan-price"><sup>$</sup>4<span style="font-size:18px">.99</span></div>
+        <div class="gk-plan-period">per month</div>
+        <ul class="gk-plan-items">
+          <li><span class="gk-check"></span>Everything in Fan</li>
+          <li><span class="gk-check"></span>Early lottery entry window</li>
+          <li><span class="gk-check"></span>Event alerts for followed artists</li>
+          <li><span class="gk-check"></span>Reduced platform fee (4-7%)</li>
+          <li><span class="gk-check"></span>Priority resale listings</li>
+        </ul>
+        <button class="gk-plan-btn">Start Fan+</button>
+      </div>
+      <div class="gk-plan">
+        <span class="gk-plan-badge">&nbsp;</span>
+        <div class="gk-plan-name">Superfan</div>
+        <div class="gk-plan-price"><sup>$</sup>9<span style="font-size:18px">.99</span></div>
+        <div class="gk-plan-period">per month</div>
+        <ul class="gk-plan-items">
+          <li><span class="gk-check"></span>Everything in Fan+</li>
+          <li><span class="gk-check"></span>Presale access windows</li>
+          <li><span class="gk-check"></span>Guaranteed lottery entries (2x odds)</li>
+          <li><span class="gk-check"></span>Lowest platform fee (3-5%)</li>
+          <li><span class="gk-check"></span>Exclusive venue partner perks</li>
+        </ul>
+        <button class="gk-plan-btn">Go Superfan</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="gk-how">
+    <div class="gk-section-label">How it works</div>
+    <h2>Four steps from signup to seat</h2>
+    <div class="gk-steps">
+      <div class="gk-step">
+        <div class="gk-step-line"></div>
+        <div class="gk-step-num">01</div>
+        <h4>Verify your identity</h4>
+        <p>Phone number and ID confirm you are a real person. Takes under two minutes.</p>
+      </div>
+      <div class="gk-step">
+        <div class="gk-step-line"></div>
+        <div class="gk-step-num">02</div>
+        <h4>Browse and enter queues</h4>
+        <p>Find your event and enter the lottery queue. No refreshing required.</p>
+      </div>
+      <div class="gk-step">
+        <div class="gk-step-line"></div>
+        <div class="gk-step-num">03</div>
+        <h4>Get notified</h4>
+        <p>We draw the queue randomly and notify winners. No speed advantage.</p>
+      </div>
+      <div class="gk-step">
+        <div class="gk-step-line"></div>
+        <div class="gk-step-num">04</div>
+        <h4>Pay what you see</h4>
+        <p>Checkout shows exactly what you pay. One fee. No surprises.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="gk-footer">
+    <div class="gk-footer-logo">Gate<span>Keepr</span></div>
+    <p>Ticketmaster built for the fans, not the scalpers.</p>
+    <p style="color:rgba(240,237,232,0.15);font-size:11px;font-family:sans-serif;">MVP prototype 2026</p>
+  </div>
+</div>
